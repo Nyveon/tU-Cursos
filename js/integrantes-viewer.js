@@ -1,5 +1,7 @@
 chrome.storage.local.get("users", function (data) {
-    if (data !== "undefined") {
+    const users = data["users"]
+
+    if (users !== "undefined") {
         console.log(data);
     }
 });
