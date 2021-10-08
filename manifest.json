@@ -22,7 +22,7 @@
   ],
 
   "action": {
-    "default_popup": "menu.html",
+    "default_popup": "html/menu.html",
     "default_title": "tU-Cursed"
   }
 }
