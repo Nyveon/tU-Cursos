@@ -3,23 +3,24 @@
   "version": "1.0.0",
   "manifest_version": 3,
 
-
   "permissions": [
     "storage",
     "webNavigation"
   ],
+
   "content_scripts": [
     {
       "matches": ["*://*.u-cursos.cl/*"],
-      "js": ["integrantes-viewer.js"],
+      "js": ["js/integrantes-viewer.js"],
       "run_at": "document_end"
     },
     {
       "matches": ["*://*.u-cursos.cl/*/*/*/*/*/integrantes/"],
-      "js": ["integrantes-counter.js"],
+      "js": ["js/integrantes-counter.js"],
       "run_at": "document_end"
     }
   ],
+
   "action": {
     "default_popup": "menu.html",
     "default_title": "tU-Cursed"
