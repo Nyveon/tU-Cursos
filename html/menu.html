@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/menu.css"/>
+
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<button>Reset count</button>
-<script src = "../js/menu.js"></script>
+
+
+
+    <hr>
+    <h5> Cursos compartidos </h5>
+
+    <div class = "tusetting">
+        Mostrar cursos compartidos:
+        <div class = "switch">
+            <label>
+                Off
+                <input type="checkbox" id="tucursos-cc-1">
+                <span class="lever"></span>
+                On
+            </label>
+        </div>
+    </div>
+
+    <div class = "tusetting">
+        Guardar integrantes de cursos:
+        <div class = "switch">
+            <label>
+                Off
+                <input type="checkbox" id="tucursos-cc-2">
+                <span class="lever"></span>
+                On
+            </label>
+        </div>
+    </div>
+
+    <div class = "tusetting">
+        Mostrar icono de integrantes guardados:
+        <div class = "switch">
+            <label>
+                Off
+                <input type="checkbox" id="tucursos-cc-3">
+                <span class="lever"></span>
+                On
+            </label>
+        </div>
+    </div>
+
+    <div class = "tusetting">
+        <a class="waves-effect waves-light btn-small" id="tucursos-cc-r">Eliminar datos guardados sobre integrantes/cursos</a>
+        <script src = "../js/menu.js"></script>
+    </div>
+
+    <hr>
+
+    <script type="text/javascript" src="../js/materialize.min.js"></script>
 </body>
 </html>

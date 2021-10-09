@@ -1,5 +1,6 @@
 //todo: don't render your own courses
 //todo: fix tooltip bounding box
+//todo: fix where number superscript is placed
 
 // Getting storage used
 chrome.storage.local.getBytesInUse(null, function(data) {
