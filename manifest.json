@@ -12,6 +12,7 @@
     {
       "matches": ["*://*.u-cursos.cl/*"],
       "js": ["js/integrantes-viewer.js"],
+      "css": ["css/tu-cursos.css"],
       "run_at": "document_end"
     },
     {

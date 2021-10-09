@@ -7,7 +7,8 @@ const splitURL = currentURL.split("/");
 const thisCourse = splitURL[6];
 const thisSection = splitURL[7];
 const thisYear = splitURL[4];
-const courseID = thisYear + "-" + thisCourse + "-" + thisSection;
+const thisSemester = splitURL[5];
+const courseID = thisYear + "-" + thisSemester + "-" + thisCourse + "-" + thisSection;
 const myID = document.querySelector('a[href *= "usuario"]')["href"].split("/")[4];
 
 
@@ -42,6 +43,7 @@ chrome.storage.local.get("users", function (data) {
      * - - - "code":    Course Code
      * - - - "section": Course Section
      * - - - "year":    Course Year
+     * - - - "semester": Course semester
      * - - - "theirType":    User type
      * - - - "myType":  My User type
      */
@@ -53,6 +55,7 @@ chrome.storage.local.get("users", function (data) {
             "code": thisCourse,
             "section": thisSection,
             "year": thisYear,
+            "semester": thisSemester,
             "theirType": value["type"],
             "myType": myType
         };
