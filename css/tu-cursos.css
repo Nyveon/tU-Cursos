@@ -16,7 +16,12 @@
     -ms-transition: opacity 0.5s;
     -o-transition: opacity 0.5s;
     transition: opacity 0.5s;
-    padding: 5px;
+    padding: 10px 10px;
+    z-index: 10;
+}
+
+.tucompartido {
+    font-size: 9pt;
 }
 
 .tuhover:hover .tutooltip {

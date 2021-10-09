@@ -26,13 +26,26 @@ chrome.storage.local.get("users", function (data) {
 
                 for (const [key, value] of Object.entries(thisUser)) {
                     if (key !== "name") {
-                        const thisCourse = document.createElement("h4");
-                        thisCourse.textContent = value["theirType"] + " en ";
-                        thisCourse.textContent += value["code"] + "-" + value["section"] + " ";
+                        const thisCourse = document.createElement("a");
+                        //todo: maybe switch to icon instead of text?
+                        //https://www.u-cursos.cl/d/images/cargos/profesor_auxiliar.svg lower case
+
+                        thisCourse.classList.add("tucompartido");
+                        thisCourse.href = value["URL"];
+                        thisCourse.textContent = value["code"] + "-" + value["section"] + " ";
                         thisCourse.textContent += "(" + value["year"] + "-" + value["semester"] +")";
+                        thisCourse.textContent += "  |  " + value["theirType"];
                         div.appendChild(thisCourse);
                     }
                 }
+
+                /*
+                Profesor de Catedra
+                Auxiliar
+
+
+
+                 */
 
                 const courseCount = Object.keys(users[thisID]).length - 1;
                 const text = document.createElement("sup");
