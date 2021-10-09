@@ -1,12 +1,10 @@
-// SHADOW DOM (epic name lol)
-const shadowWrapper = document.createElement('div');
-shadowWrapper.setAttribute('style', `
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-`);
+//todo: don't render your own courses
+//todo: fix tooltip bounding box
+
+// Getting storage used
+chrome.storage.local.getBytesInUse(null, function(data) {
+    console.log(Math.round(data/1024) + "kb");
+});
 
 chrome.storage.local.get("users", function (data) {
     const users = data["users"] ?? {};
@@ -35,17 +33,10 @@ chrome.storage.local.get("users", function (data) {
                         thisCourse.textContent = value["code"] + "-" + value["section"] + " ";
                         thisCourse.textContent += "(" + value["year"] + "-" + value["semester"] +")";
                         thisCourse.textContent += "  |  " + value["theirType"];
+                        //listItem.appendChild(thisCourse);
                         div.appendChild(thisCourse);
                     }
                 }
-
-                /*
-                Profesor de Catedra
-                Auxiliar
-
-
-
-                 */
 
                 const courseCount = Object.keys(users[thisID]).length - 1;
                 const text = document.createElement("sup");
