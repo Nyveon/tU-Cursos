@@ -1,9 +1,19 @@
 body {
-    width: 240px;
-    padding: 5px;
+    width: 400px;
+    padding-bottom: 4px;
 }
 
 .tusetting {
-    margin-top: 5px;
-    margin-bottom: 7px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.tusection-title {
+    text-align: center;
+    margin-top: 7px;
+}
+
+.tucbutton {
+    margin-top: 12px;
+    margin-right: 12px;
 }

@@ -2,10 +2,6 @@
 //todo: fix tooltip bounding box
 //todo: fix where number superscript is placed
 
-// Getting storage used
-chrome.storage.local.getBytesInUse(null, function(data) {
-    console.log(Math.round(data/1024) + "kb");
-});
 
 chrome.storage.local.get("users", function (data) {
     const users = data["users"] ?? {};
