@@ -1,7 +1,7 @@
 {
   "name": "tU-Cursos",
   "version": "1.0.0",
-  "manifest_version": 3,
+  "manifest_version": 2,
 
   "permissions": [
     "storage",
@@ -11,7 +11,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.u-cursos.cl/*"],
-      "js": ["js/integrantes-viewer.js"],
+      "js": ["js/integrantes-viewer.js", "js/element-hidder.js"],
       "css": ["css/tu-cursos.css"],
       "run_at": "document_end"
     },
@@ -22,7 +22,7 @@
     }
   ],
 
-  "action": {
+  "browser_action": {
     "default_popup": "html/menu.html",
     "default_title": "tU-Cursed"
   }
