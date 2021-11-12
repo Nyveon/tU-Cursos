@@ -1,6 +1,6 @@
 // First time launch
 chrome.runtime.onInstalled.addListener(function() {
-    alert("first load");
+    //alert("first load");
 
     /* Get settings
     chrome.storage.local.get("settings", function (data) {

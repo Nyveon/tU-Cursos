@@ -4,7 +4,7 @@
 
 //todo: don't render your own courses
 //todo: fix where number superscript is placed
-//todo: check settings
+
 
 /**
  * Next to every hyperlink-username, adds the superscript number of shared courses.
