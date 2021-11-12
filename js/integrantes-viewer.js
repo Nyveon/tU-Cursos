@@ -1,8 +1,17 @@
+/**
+ * Runs at document-end
+ */
+
 //todo: don't render your own courses
 //todo: fix tooltip bounding box
 //todo: fix where number superscript is placed
 
+//todo: check settings
 
+/**
+ * Next to every hyperlink-username, adds the superscript number of shared courses.
+ * The superscript number has a tooltip which shows the specific courses shared.
+ */
 chrome.storage.local.get("users", function (data) {
     const users = data["users"] ?? {};
     const userLinks = document.querySelectorAll('a[href *= "usuario"]');
@@ -14,8 +23,8 @@ chrome.storage.local.get("users", function (data) {
             const thisID = splitUser[4];
             if (users[thisID] !== undefined) {
 
-                const div = document.createElement("div");
-                div.classList.add("tutooltip");
+                const tooltip = document.createElement("div");
+                tooltip.classList.add("tutooltiptext");
 
                 const thisUser = users[thisID];
 
@@ -28,18 +37,18 @@ chrome.storage.local.get("users", function (data) {
                         thisCourse.classList.add("tucompartido");
                         thisCourse.href = value["URL"];
                         thisCourse.textContent = value["code"] + "-" + value["section"] + " ";
-                        thisCourse.textContent += "(" + value["year"] + "-" + value["semester"] +")";
+                        thisCourse.textContent += "(" + value["year"] + "-" + value["semester"] + ")";
                         thisCourse.textContent += "  |  " + value["theirType"];
                         //listItem.appendChild(thisCourse);
-                        div.appendChild(thisCourse);
+                        tooltip.appendChild(thisCourse);
                     }
                 }
 
                 const courseCount = Object.keys(users[thisID]).length - 1;
                 const text = document.createElement("sup");
                 text.textContent = courseCount.toString();
-                text.classList.add("tuhover");
-                text.appendChild(div);
+                text.classList.add("tutooltip");
+                text.appendChild(tooltip);
 
                 //text.appendChild(div);
                 user.parentElement.appendChild(text);
@@ -48,3 +57,4 @@ chrome.storage.local.get("users", function (data) {
         }
     }
 });
+

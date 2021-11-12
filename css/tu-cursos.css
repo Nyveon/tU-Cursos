@@ -1,32 +1,40 @@
-.tuhover {
+/* Tooltip container */
+.tutooltip {
     position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
-.tutooltip {
-    /* hide and position tooltip */
-    left: 10px;
+/* Tooltip text */
+.tutooltip .tutooltiptext {
+    visibility: hidden;
     width: max-content;
     background-color: black;
-    color: white;
-    border-radius: 5px;
-    opacity: 0;
+    color: #fff;
+    padding: 5px 5px;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
     position: absolute;
-    -webkit-transition: opacity 0.5s;
-    -moz-transition: opacity 0.5s;
-    -ms-transition: opacity 0.5s;
-    -o-transition: opacity 0.5s;
-    transition: opacity 0.5s;
-    padding: 10px 10px;
+    top: -5px;
+    left: 105%;
     z-index: 10;
+
+    /* Fade in */
+    opacity: 0;
+    transition: opacity 0.2s;
 }
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tutooltip:hover .tutooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
 
 .tucompartido {
     display: block;
     font-size: 9pt;
     margin: 14px;
-}
-
-.tuhover:hover .tutooltip {
-    /* display tooltip on hover */
-    opacity: 1;
+    text-align: left;
 }

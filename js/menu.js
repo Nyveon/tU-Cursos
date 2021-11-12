@@ -33,8 +33,4 @@ document.addEventListener('DOMContentLoaded', function () {
         alert("data reset");
         //chrome.storage.local.clear();
     }, false);
-
-
-
-
 }, false)
