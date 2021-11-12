@@ -1,0 +1,18 @@
+body {
+    width: 400px;
+}
+
+.tusetting {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.tusection-title {
+    text-align: center;
+    margin-top: 7px;
+}
+
+.tucbutton {
+    margin-top: 12px;
+    margin-right: 12px;
+}
