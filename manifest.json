@@ -16,6 +16,11 @@
       "run_at": "document_end"
     },
     {
+      "matches": ["*://*.u-cursos.cl/*"],
+      "js": ["js/element-hider.js"],
+      "run_at": "document_start"
+    },
+    {
       "matches": ["*://*.u-cursos.cl/*/*/*/*/*/integrantes/"],
       "js": ["js/integrantes-counter.js"],
       "run_at": "document_end"
