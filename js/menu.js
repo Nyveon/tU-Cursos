@@ -25,6 +25,9 @@ function initialize_switch(settings, key) {
 
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    var instance = M.Tabs.init(document.getElementById("tucursos-tabs"), {});
+
     chrome.storage.local.get("settings", function (data) {
         const settings = data["settings"] ?? {};
 
@@ -32,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
         initialize_switch(settings, "cc-show-counter");
         initialize_switch(settings, "cc-save-participants");
         initialize_switch(settings, "cc-show-saved-icon");
+        initialize_switch(settings, "eh-hide-piechart");
+        initialize_switch(settings, "eh-hide-preview");
 
         const switchCCR = document.getElementById("tucursos-cc-r");
         // Getting storage used and adding it above the delete data button
@@ -45,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         switchCCR.addEventListener('click', function() {
             alert("data reset");
-            //chrome.storage.local.clear();
+            chrome.storage.local.clear();
         }, false);
     });
 }, false)

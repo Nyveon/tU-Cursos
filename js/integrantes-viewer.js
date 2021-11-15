@@ -10,7 +10,6 @@
  * Next to every hyperlink-username, adds the superscript number of shared courses.
  * The superscript number has a tooltip which shows the specific courses shared.
  */
-
 chrome.storage.local.get("settings", function (data) {
     const settings = data["settings"] ?? {};
 

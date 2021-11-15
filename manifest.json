@@ -11,9 +11,14 @@
   "content_scripts": [
     {
       "matches": ["*://*.u-cursos.cl/*"],
-      "js": ["js/integrantes-viewer.js"],
+      "js": ["js/integrantes-viewer.js", "js/element-hider.js"],
       "css": ["css/tu-cursos.css"],
       "run_at": "document_end"
+    },
+    {
+      "matches": ["*://*.u-cursos.cl/*"],
+      "js": ["js/element-hider.js"],
+      "run_at": "document_start"
     },
     {
       "matches": ["*://*.u-cursos.cl/*/*/*/*/*/integrantes/"],
