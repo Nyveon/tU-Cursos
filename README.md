@@ -5,7 +5,7 @@ Extension de Chromium y Firefox que agrega configuraciones de personalización y
 
 ## Todo es personalizable
 
-En el menú de configuración de tU-Cursos, se pueden deshabilitar cualquiera de las caracteristicas, y eliminar los datos guardados.
+En el menú de configuración de tU-Cursos, se puede deshabilitar cualquiera de las caracteristicas, y eliminar los datos guardados.
 
 <img src="screenshots/menu_1.png" alt="Menu de configuración"/>
 
