@@ -32,6 +32,12 @@ En la pestaña de "Esconder" en el menú de tU-Cursos, puedes esconder:
 
 <img src="screenshots/hidepreview.gif" alt="Esconder la vista previa del historial"/>
 
+## 👁 Vista previa de PDFs de tamaño ajustable 👁
+
+Haciendo *drag* desde la esquina inferior derecha se ajusta el tamaño del visor de PDFs.
+
+<img src="screenshots/resizepdfviewer.gif" alt="Ajustar el tamaño del visor de PDF"/>
+
 ## 🔮 Futuro 🔮
 
 ### 🎨 Personalización de íconos, colores y fonts 🎨
@@ -42,10 +48,9 @@ En la pestaña de "Esconder" en el menú de tU-Cursos, puedes esconder:
 
 *Esta carácteristica aún no se ha implementado en la versión pública*
 
-El proyecto sigue en alfa, y aun no tiene un release oficial. Tenemos varias ideas que se pueden ver [aquí](https://github.com/Nyveon/tU-Cursos/issues). Se aceptan colaboraciones, sugerencias, reportes de bugs y otros aportes!
+El proyecto sigue en alfa, y aun no tiene un release oficial. Tenemos varias ideas que se pueden ver en [issues](https://github.com/Nyveon/tU-Cursos/issues). Se aceptan colaboraciones, sugerencias, reportes de bugs y otros aportes!
 
 Aquí hay una lista de algunas de las ideas:
- - 👁 Vista previa de PDFs de tamaño ajustable.
  - 🖼 Marcos a las fotos de perfil según el rol de la persona en el curso.
  - 📆 Contador de semanas en el horario.
  - 🚪 Elección de la pestaña default de cada curso.
