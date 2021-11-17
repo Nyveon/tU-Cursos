@@ -26,3 +26,5 @@ chrome.runtime.onInstalled.addListener(function() {
         console.log("Default settings set successfully.");
     });
 });
+
+
