@@ -24,7 +24,9 @@ function hideElement(n, selector) {
 function censorElementText(n, selector, prefix) {
 	if (n.firstElementChild && n.querySelector(selector)) {
 		for (const el of n.querySelectorAll(selector)) {
-			el.textContent = prefix + stringRandom(el.textContent);
+			el.textContent = prefix + stringRandom(el.textContent.split("  ").at(-1));
+			//todo: This removes ALL inner HTML for some reason
+			//Result: deletes miniature profile pictures next to names that are in the same element
 		}
 	}
 }
@@ -60,7 +62,7 @@ function stringRandom(str) {
 	for (let i = 0; i < str.length; i++) {
 		seed += str.charCodeAt(i);
 	}
-	let x = Math.sin(seed) * 100000;
+	const x = Math.sin(seed) * 100000;
 	return Math.abs(Math.round(x));
 }
 
@@ -85,6 +87,21 @@ chrome.storage.local.get("settings", function (data) {
 		ehAnonPeopleSelector.push('.string>h1~h2');
 		ehAnonPeopleSelector.push('.string>h1>a');
 	}
+	if (window.location.toString().match(".*:\/\/.*u-cursos.cl\/.*\/mi_historial\/.*")) {
+		ehAnonPeopleSelector.push('.cont>h1>span');
+		ehAnonPeopleSelector.push('.c_0>li>h2');
+	}
+	if (window.location.toString().match(".*:\/\/.*u-cursos.cl\/.*\/historial\/.*")) {
+		ehAnonPeopleSelector.push('.c_0>li>h2');
+	}
+	//todo: Estadisticas
+	//todo: Clases Virtuales
+	//todo: Leyendo correos
+	//todo: Notas
+	//todo: Preview blog historial
+
+
+
 
 	const ehAnonPP = settings['eh-anon-pp'];
 	const ehAnonPPSelector = '.avatar';
