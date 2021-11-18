@@ -20,6 +20,7 @@ chrome.runtime.onInstalled.addListener(function() {
         "eh-notification-bubble": false,    //todo Hides Notification bubbles
         "eh-anon-course": false,            //todo Censors course names
         "eh-anon-people": false,            //todo Censors people's names
+        "eh-anon-pp": false                 //todo Censor people's profile pictures
     }
 
     chrome.storage.local.set({"settings": settings}, function() {
