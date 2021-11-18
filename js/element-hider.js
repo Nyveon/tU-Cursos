@@ -2,11 +2,10 @@
  * This script remove various elements from the page when the right page is matched.
  */
 
-
 /**
- * Hides specific element given a selector
- * @param n Element being searched
- * @param selector Element target
+ * Hides specific element given a selector.
+ * @param n Parent element.
+ * @param selector Element target.
  */
 function hideElement(n, selector) {
 	if (n.firstElementChild && n.querySelector(selector)) {
@@ -16,26 +15,38 @@ function hideElement(n, selector) {
 	}
 }
 
-
+/**
+ * Censors a given element's inner text content with a deterministically generated integer.
+ * @param n Parent element.
+ * @param selector Element target.
+ * @param prefix String prefixed to output.
+ */
 function censorElementText(n, selector, prefix) {
 	if (n.firstElementChild && n.querySelector(selector)) {
 		for (const el of n.querySelectorAll(selector)) {
-			el.innerHTML = prefix + stringRandom(el.innerHTML);
+			el.textContent = prefix + stringRandom(el.textContent);
 		}
 	}
 }
 
+/**
+ * Censors a given profile picture element with a generic image.
+ * Modulates the color of the image deterministically based on the alt-text.
+ * @param n Parent element.
+ * @param selector Element target.
+ */
 function censorElementImage(n, selector) {
 	if (n.firstElementChild && n.querySelector(selector)) {
 		for (const el of n.querySelectorAll(selector)) {
+			el.style.cssText += 'filter: hue-rotate(' + stringRandom(el.alt) + 'deg);';
 			el.src = "https://static.u-cursos.cl/images/servicios/datos_usuario.png";
 		}
 	}
 }
 
-
 /**
  * Makes a random integer from a string.
+ * Not actually very secure, but good enough for what's needed here.
  * @param str String of any length (seed)
  * @returns {number} Between 1 and 100000
  */
@@ -43,7 +54,6 @@ function stringRandom(str) {
 	if (!str) {
 		return 0
 	}
-
 	str = str.replace(/\s+/g, '');
 
 	let seed = 1;
@@ -55,21 +65,26 @@ function stringRandom(str) {
 }
 
 
-
+/**
+ * Mutation observer so that changes are applied as the page generates and not after.
+ */
 chrome.storage.local.get("settings", function (data) {
 	const settings = data["settings"] ?? {};
 
-	const ehHidePiechart = window.location.toString().match(".*:\\/\\/.*u-cursos.cl\\/.*\\/tareas_usuario\\/.*") && settings["eh-hide-piechart"];
+	const ehHidePiechart = window.location.toString().match(".*:\\/\\/.*u-cursos.cl\\/.*\\/tareas_usuario\\/.*")
+		&& settings["eh-hide-piechart"];
 	const ehHidePiechartSelector = '.detalle';
 
-	const ehHidePreview = window.location.toString().match(".*:\/\/.*u-cursos.cl\/.*\/historial\/.*") && settings["eh-hide-preview"];
+	const ehHidePreview = window.location.toString().match(".*:\/\/.*u-cursos.cl\/.*\/historial\/.*")
+		&& settings["eh-hide-preview"];
 	const ehHidePreviewSelector = '.sidebar';
 
 	const ehAnonPeople = settings['eh-anon-people'];
-	const ehAnonPeopleSelector = '.usuario';
-
-	const ehAnonIntegrantes = ehAnonPeople && window.location.toString().match(".*:\/\/.*u-cursos.cl\/.*\/integrantes\/.*");
-	const ehAnonIntegrantesSelector = ['.string>h1~h2', '.string>h1>a'];
+	const ehAnonPeopleSelector = ['.usuario', '.perfil>h1'];
+	if (window.location.toString().match(".*:\/\/.*u-cursos.cl\/.*\/integrantes\/.*")) {
+		ehAnonPeopleSelector.push('.string>h1~h2');
+		ehAnonPeopleSelector.push('.string>h1>a');
+	}
 
 	const ehAnonPP = settings['eh-anon-pp'];
 	const ehAnonPPSelector = '.avatar';
@@ -82,6 +97,7 @@ chrome.storage.local.get("settings", function (data) {
 		for (const {addedNodes} of mutations) {
 			for (const n of addedNodes) {
 				if (n.tagName) {
+
 					// Hide homework pie-chart
 					if (ehHidePiechart) {
 						hideElement(n, ehHidePiechartSelector);
@@ -94,13 +110,8 @@ chrome.storage.local.get("settings", function (data) {
 
 					// Anonymize usernames
 					if (ehAnonPeople) {
-						//ehAnonPeopleSelector.forEach(function(selector) {
+						ehAnonPeopleSelector.forEach(function(selector) {
 							censorElementText(n, ehAnonPeopleSelector, "User-");
-						//});
-					}
-					if (ehAnonIntegrantes) {
-						ehAnonIntegrantesSelector.forEach(function(selector) {
-							censorElementText(n, selector, "User-");
 						});
 					}
 
@@ -108,6 +119,10 @@ chrome.storage.local.get("settings", function (data) {
 					if (ehAnonPP) {
 						censorElementImage(n, ehAnonPPSelector);
 					}
+
+					//todo: censor own profile name
+					//todo: censor name in historial
+					//todo: censor name in notas
 				}
 			}
 		}
