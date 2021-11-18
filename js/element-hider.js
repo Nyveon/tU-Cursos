@@ -99,6 +99,7 @@ chrome.storage.local.get("settings", function (data) {
 	//todo: Leyendo correos
 	//todo: Notas
 	//todo: Preview blog historial
+	//todo: Historial instituciones
 
 
 
