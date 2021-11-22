@@ -35,5 +35,10 @@
   "browser_action": {
     "default_popup": "html/menu.html",
     "default_title": "tU-Cursos"
+  },
+
+  "sidebar_action": {
+    "default_title": "tU-Cursos",
+    "default_panel": "html/sidebar.html"
   }
 }
