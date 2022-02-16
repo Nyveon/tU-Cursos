@@ -51,7 +51,7 @@ for (var i = 0; i < text.length; i++) {
  * is clicked and the short text is being displayed it shows the entire text and changes to a button
  * that does the opposite.
  */
-var buttons = document.querySelectorAll('.show-more-button')
+var buttons = document.querySelectorAll('.show-more-button');
 
 for (i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function () {
@@ -74,4 +74,4 @@ for (i = 0; i < buttons.length; i++) {
             this.previousElementSibling.previousElementSibling.style.display = 'none';
         }
     });
-}
+};
