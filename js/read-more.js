@@ -59,7 +59,7 @@ for (i = 0; i < buttons.length; i++) {
         if (this.getAttribute('data-more') == 0) {
             this.setAttribute('data-more', 1);
             this.style.display = 'block';
-            this.innerHTML = 'Ver menos';
+            this.innerHTML = 'Leer menos';
 
             this.previousElementSibling.previousElementSibling.previousElementSibling.style.display = 'none';
             this.previousElementSibling.previousElementSibling.style.display = 'inline';
@@ -68,7 +68,7 @@ for (i = 0; i < buttons.length; i++) {
         else if (this.getAttribute('data-more') == 1) {
             this.setAttribute('data-more', 0);
             this.style.display = 'inline';
-            this.innerHTML = 'Ver más';
+            this.innerHTML = 'Leer más';
 
             this.previousElementSibling.previousElementSibling.previousElementSibling.style.display = 'inline';
             this.previousElementSibling.previousElementSibling.style.display = 'none';
