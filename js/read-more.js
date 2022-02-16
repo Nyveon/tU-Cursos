@@ -2,11 +2,6 @@
 var paragraph_limit = 5;
 var text = document.getElementsByClassName('texto');
 
-function getCharLen(str){
-    str = str.replace(/<[^>]*>/g, "");
-    return str.length;
-}
-
 function countLines(elem){
     var paragraphs = elem.innerHTML.split("<br>").filter(String);
     var len = paragraphs.length;
@@ -22,11 +17,16 @@ for(var i = 0; i < text.length; i++){
     var opciones = text[i].lastElementChild;
     var removed = text[i].removeChild(opciones);
     var text_length = countLines(text[i])
-    if(text_length >= paragraph_limit){
-        var paragraphs = text[i].innerHTML.split("<br>").filter(String);
+    if(text_length > paragraph_limit){
+        var paragraphs = text[i].innerHTML.split("<br>");
         short_text = paragraphs[0];
         for(var j = 1; j <= paragraph_limit; j++){
-            short_text = short_text + "<br>" + paragraphs[j];
+            if(paragraphs[j] == ""){
+                short_text = short_text + "<br>";
+            }
+            else{
+                short_text = short_text + "<br>" + paragraphs[j];
+            }
         }
         long_text = text[i].innerHTML
         text[i].innerHTML = '<div><span class="short-text">' + short_text + '</span><span class="long-text" style="display: none">' + long_text + '</span><br><button class="show-more-button" data-more="0">Ver más</span></div>';
