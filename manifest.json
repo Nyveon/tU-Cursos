@@ -1,49 +1,65 @@
 {
-  "name": "tU-Cursos",
-  "version": "1.0.0",
-  "manifest_version": 2,
-
-  "permissions": [
-    "storage",
-    "webNavigation"
-  ],
-
-  "content_scripts": [
-    {
-      "matches": ["*://*.u-cursos.cl/*"],
-      "js": ["js/integrantes-viewer.js", "js/element-hider.js"],
-      "css": ["css/tu-cursos.css"],
-      "run_at": "document_end"
+    "name": "tU-Cursos",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "permissions": [
+        "storage",
+        "webNavigation"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.u-cursos.cl/*"
+            ],
+            "js": [
+                "js/integrantes-viewer.js",
+                "js/element-hider.js"
+            ],
+            "css": [
+                "css/tu-cursos.css"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "*://*.u-cursos.cl/*"
+            ],
+            "js": [
+                "js/element-hider.js",
+                "js/element-resizer.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "*://*.u-cursos.cl/*/*/*/*/*/integrantes/"
+            ],
+            "js": [
+                "js/integrantes-counter.js"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "*://*.u-cursos.cl/ingenieria/2/foro_institucion/*",
+                "*://www.u-cursos.cl/ingenieria/*/*/*/*/foro/*",
+                "*://www.u-cursos.cl/uchile/4/foro_institucion/",
+                "*://www.u-cursos.cl/uchile/*/0/*/1/foro/"
+            ],
+            "js": [
+                "js/read-more.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "background": {
+        "scripts": [
+            "js/background-settings.js"
+        ],
+        "persistent": false
     },
-    {
-      "matches": ["*://*.u-cursos.cl/*"],
-      "js": ["js/element-hider.js", "js/element-resizer.js"],
-      "run_at": "document_start"
-    },
-    {
-      "matches": ["*://*.u-cursos.cl/*/*/*/*/*/integrantes/"],
-      "js": ["js/integrantes-counter.js"],
-      "run_at": "document_end"
-    },
-    {
-        "matches": ["*://*.u-cursos.cl/ingenieria/2/foro_institucion/*"],
-        "js": ["js/read-more.js"],
-        "run_at": "document_end"
-    },
-    {
-        "matches": ["*://www.u-cursos.cl/ingenieria/*/*/*/*/foro/*"],
-        "js": ["js/read-more.js"],
-        "run_at": "document_end"
+    "browser_action": {
+        "default_popup": "html/menu.html",
+        "default_title": "tU-Cursos"
     }
-  ],
-
-  "background": {
-    "scripts": ["js/background-settings.js"],
-    "persistent": false
-  },
-
-  "browser_action": {
-    "default_popup": "html/menu.html",
-    "default_title": "tU-Cursos"
-  }
 }
