@@ -24,6 +24,16 @@
       "matches": ["*://*.u-cursos.cl/*/*/*/*/*/integrantes/"],
       "js": ["js/integrantes-counter.js"],
       "run_at": "document_end"
+    },
+    {
+        "matches": ["*://*.u-cursos.cl/ingenieria/2/foro_institucion/*"],
+        "js": ["js/read-more.js"],
+        "run_at": "document_end"
+    },
+    {
+        "matches": ["*://www.u-cursos.cl/ingenieria/*/*/*/*/foro/*"],
+        "js": ["js/read-more.js"],
+        "run_at": "document_end"
     }
   ],
 
