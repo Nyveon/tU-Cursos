@@ -50,6 +50,18 @@
                 "js/read-more.js"
             ],
             "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "*://*.u-cursos.cl/ingenieria/2/foro_institucion/*",
+                "*://www.u-cursos.cl/ingenieria/*/*/*/*/foro/*",
+                "*://www.u-cursos.cl/uchile/4/foro_institucion/",
+                "*://www.u-cursos.cl/uchile/*/0/*/1/foro/"
+            ],
+            "js": [
+                "js/embedded-media.js"
+            ],
+            "run_at": "document_end"
         }
     ],
     "background": {
