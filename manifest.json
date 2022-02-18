@@ -50,6 +50,15 @@
                 "js/read-more.js"
             ],
             "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "*://*.u-cursos.cl/ingenieria/*/*/*/*notas/*"
+            ],
+            "js": [
+                "js/grade-comments.js"
+            ],
+            "run_at": "document_end"
         }
     ],
     "background": {
