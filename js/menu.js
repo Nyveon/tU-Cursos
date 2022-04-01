@@ -35,8 +35,13 @@ document.addEventListener('DOMContentLoaded', function () {
         initialize_switch(settings, "cc-show-counter");
         initialize_switch(settings, "cc-save-participants");
         initialize_switch(settings, "cc-show-saved-icon");
+
         initialize_switch(settings, "eh-hide-piechart");
+        initialize_switch(settings, "eh-shorten-message");
         initialize_switch(settings, "eh-hide-preview");
+
+        initialize_switch(settings, "qol-grade-comments");
+        initialize_switch(settings, "qol-element-resizer");
 
         const switchCCR = document.getElementById("tucursos-cc-r");
         // Getting storage used and adding it above the delete data button
