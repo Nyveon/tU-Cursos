@@ -20,6 +20,9 @@ chrome.runtime.onInstalled.addListener(function() {
         "eh-notification-bubble": false,    //todo Hides Notification bubbles
         "eh-anon-course": false,            //todo Censors course names
         "eh-anon-people": false,            //todo Censors people's names
+        "eh-shorten-message": true,         // Toggles shortening long messages with a "Ver más" button
+        "qol-grade-comments": true,         // Toggles grade comment editing opening in a new tab
+        "qol-element-resizer": true,        // Toggles pdf elements being resizeable by dragging
     }
 
     chrome.storage.local.set({"settings": settings}, function() {
