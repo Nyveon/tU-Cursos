@@ -59,6 +59,16 @@
                 "js/grade-comments.js"
             ],
             "run_at": "document_end"
+        },
+        {
+            "matches": [
+                "*://*.u-cursos.cl/usuario/*/horario/*"
+            ],
+            "js": [
+                "js/week-counter.js",
+                "js/ical.js"
+            ],
+            "run_at": "document_end"
         }
     ],
     "background": {
