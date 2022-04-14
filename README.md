@@ -39,6 +39,11 @@ Haciendo *drag* desde la esquina inferior derecha se ajusta el tamaño del visor
 
 Editar una nota abre un Pop-up en vez de redirigir toda la página a la nota de ese estudiante en particular. Útil para ayudantes y auxiliares.
 
+## 📅 Contador de Semanas
+> Por TaconeoMental
+
+<img src="screenshots/week-counter.gif" alt="Mostrar número de semana" width="60%"/>
+
 ## ⚙ Todo es personalizable:
 > Por Eric K
 

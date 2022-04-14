@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         initialize_switch(settings, "qol-grade-comments");
         initialize_switch(settings, "qol-element-resizer");
+        initialize_switch(settings, "qol-week-counter");
 
         const switchCCR = document.getElementById("tucursos-cc-r");
         // Getting storage used and adding it above the delete data button
