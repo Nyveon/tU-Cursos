@@ -23,11 +23,10 @@ chrome.runtime.onInstalled.addListener(function() {
         "eh-shorten-message": true,         // Toggles shortening long messages with a "Ver más" button
         "qol-grade-comments": true,         // Toggles grade comment editing opening in a new tab
         "qol-element-resizer": true,        // Toggles pdf elements being resizeable by dragging
+        "qol-week-counter": true,           // Toggles week number visibility in schedule section
     }
 
     chrome.storage.local.set({"settings": settings}, function() {
         console.log("Default settings set successfully.");
     });
 });
-
-

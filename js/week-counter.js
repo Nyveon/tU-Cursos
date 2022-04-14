@@ -151,5 +151,13 @@ function addCounter(file) {
     schedule_date_dom.append(add)
 }
 
-var href = document.getElementsByClassName("file ical")[0].href
-fetch(href).then(r => r.text()).then(d => addCounter(d))
+chrome.storage.local.get("settings", function (data) {
+    const settings = data["settings"] ?? {};
+
+    if (!settings["qol-week-counter"]) {
+        return
+    }
+
+    var href = document.getElementsByClassName("file ical")[0].href
+    fetch(href).then(r => r.text()).then(d => addCounter(d))
+});
