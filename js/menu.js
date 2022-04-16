@@ -35,7 +35,7 @@ function initializeSwitch(settings, key) {
  */
 function initializeDataReset(reset_data_button) {
     reset_data_button.addEventListener('click', function() {
-        alert("Datos eliminados.");
+        console.log("Datos eliminados.");
         chrome.storage.local.clear();
     }, false);
 }
@@ -63,7 +63,7 @@ function initializeMenu() {
         // Course Counter (cc-)
         initializeSwitch(settings, "cc-show-counter");
         initializeSwitch(settings, "cc-save-participants");
-        initializeSwitch(settings, "cc-show-saved-icon");
+        //initializeSwitch(settings, "cc-show-saved-icon");
 
         // Element Hider (eh-)
         initializeSwitch(settings, "eh-hide-piechart");
@@ -86,4 +86,3 @@ function initializeMenu() {
 
 // Initialize the menu upon loading
 document.addEventListener('DOMContentLoaded', initializeMenu);
-
