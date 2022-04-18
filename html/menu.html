@@ -1,259 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="../css/menu.css"/>
 
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    <div class="row">
-        <div class="col s12">
-            <ul class="tabs" id="tucursos-tabs">
-                <li class="tab col s3"><a class="active" href="#tcursos">Cursos</a></li>
-                <li class="tab col s3 disabled"><a href="#ttemas">Temas</a></li>
-                <li class="tab col s3"><a href="#tesconder">Esconder</a></li>
-                <li class="tab col s3"><a href="#tmisc">Misc.</a></li>
-            </ul>
-        </div>
-        <div id="tcursos" class="col s12">
-            <table class="striped">
-                <tbody>
-                <tr>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <input type="checkbox" id="cc-show-counter">
-                                <span class="lever"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <h6>
-                            Mostrar cursos compartidos.
-                        </h6>
-                    </td>
-                </tr>
 
-                <tr>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <input type="checkbox" id="cc-save-participants">
-                                <span class="lever"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <h6>
-                            Guardar integrantes de cursos.
-                        </h6>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <input type="checkbox" id="cc-show-saved-icon">
-                                <span class="lever"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <h6>
-                            <del> Mostrar icono de integrantes guardados. </del>
-                        </h6>
-                    </td>
-                </tr>
-
-                </tbody>
-            </table>
-
-
-
-            <div class = "right-align tucbutton">
-                <a class="waves-effect waves-light btn-small red lighten-1" id="tucursos-cc-r">Eliminar datos de cursos</a>
-                <script src = "../js/menu.js"></script>
-            </div>
-        </div>
-        <div id="ttemas" class="col s12">
-            Test2
-        </div>
-        <div id="tesconder" class="col s12">
-            <table class="striped">
-                <tbody>
-                <tr>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <input type="checkbox" id="eh-shorten-message">
-                                <span class="lever"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <h6>
-                            Acortar mensajes largos.
-                        </h6>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <input type="checkbox" id="eh-hide-piechart">
-                                <span class="lever"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <h6>
-                            Esconder gráfico de tareas.
-                        </h6>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <input type="checkbox" id="eh-hide-preview">
-                                <span class="lever"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <h6>
-                            Esconder pre-vista de blog en historial.
-                        </h6>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <input type="checkbox" id="eh-notification-bubble">
-                                <span class="lever"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <h6>
-                            <del> Esconder burbujas de notificaciones. </del>
-                        </h6>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <input type="checkbox" id="eh-hide-sidebar">
-                                <span class="lever"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <h6>
-                            <del> Esconder menú izquierdo. </del>
-                        </h6>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <input type="checkbox" id="eh-anon-people">
-                                <span class="lever"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <h6>
-                            <del> Anonimizar nombres de usuario. </del>
-                        </h6>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <input type="checkbox" id="eh-anon-course">
-                                <span class="lever"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <h6>
-                            <del> Anonimizar nombres de cursos. </del>
-                        </h6>
-                    </td>
-                </tr>
-
-                </tbody>
-            </table>
-        </div>
-        <div id="tmisc" class="col s12">
-            <table class="striped">
-                <tbody>
-                <tr>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <input type="checkbox" id="qol-grade-comments">
-                                <span class="lever"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <h6>
-                            Pop-Up al editar comentario de una nota.
-                        </h6>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <input type="checkbox" id="qol-element-resizer">
-                                <span class="lever"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <h6>
-                            PDFs redimensionables.
-                        </h6>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <input type="checkbox" id="qol-week-counter">
-                                <span class="lever"></span>
-                            </label>
-                        </div>
-                    </td>
-                    <td>
-                        <h6>
-                            Número de semana en calendario.
-                        </h6>
-                    </td>
-                </tr>
-
-                </tbody>
-            </table>
-        </div>
+    <div class="flex-container">
+        <a href="https://github.com/Nyveon/tU-Cursos">
+            <img width=32 src="../icon.png"/>
+        </a>
+        <a class="title-text" href="https://github.com/Nyveon/tU-Cursos">
+            tU-Cursos
+        </a>
     </div>
-    <script type="text/javascript" src="../js/materialize.min.js"></script>
+
+
+    <hr>
+
+    <h3>Cursos:</h3>
+
+    <label class="label">
+        <div class="toggle">
+            <input id="cc-save-participants" class="toggle-state" type="checkbox" name="check" value="check" />
+            <div class="toggle-inner">
+                <div class="indicator"></div>
+            </div>
+            <div class="active-bg"></div>
+        </div>
+        <div class="label-text">Guardar integrantes de cursos.</div>
+    </label>
+
+    <label class="label">
+        <div class="toggle">
+            <input id="cc-show-counter" class="toggle-state" type="checkbox" name="check" value="check" />
+            <div class="toggle-inner">
+                <div class="indicator"></div>
+            </div>
+            <div class="active-bg"></div>
+        </div>
+        <div class="label-text">Mostrar cursos compartidos.</div>
+    </label>
+
+    <hr>
+    <h3>Esconder:</h3>
+
+    <label class="label">
+        <div class="toggle">
+            <input id="eh-hide-preview" class="toggle-state" type="checkbox" name="check" value="check" />
+            <div class="toggle-inner">
+                <div class="indicator"></div>
+            </div>
+            <div class="active-bg"></div>
+        </div>
+        <div class="label-text">Esconder pre-vista de blog en historial.</div>
+    </label>
+
+    <label class="label">
+        <div class="toggle">
+            <input id="eh-hide-piechart" class="toggle-state" type="checkbox" name="check" value="check" />
+            <div class="toggle-inner">
+                <div class="indicator"></div>
+            </div>
+            <div class="active-bg"></div>
+        </div>
+        <div class="label-text">Esconder gráfico de tareas.</div>
+    </label>
+
+    <label class="label">
+        <div class="toggle">
+            <input id="eh-shorten-message" class="toggle-state" type="checkbox" name="check" value="check" />
+            <div class="toggle-inner">
+                <div class="indicator"></div>
+            </div>
+            <div class="active-bg"></div>
+        </div>
+        <div class="label-text">Acortar mensajes largos.</div>
+    </label>
+
+    <hr>
+
+    <h3>Utilidades:</h3>
+
+
+    <label class="label">
+        <div class="toggle">
+            <input id="qol-grade-comments" class="toggle-state" type="checkbox" name="check" value="check" />
+            <div class="toggle-inner">
+                <div class="indicator"></div>
+            </div>
+            <div class="active-bg"></div>
+        </div>
+        <div class="label-text">Pop-Up al editar comentario de una nota.</div>
+    </label>
+
+    <label class="label">
+        <div class="toggle">
+            <input id="qol-element-resizer" class="toggle-state" type="checkbox" name="check" value="check" />
+            <div class="toggle-inner">
+                <div class="indicator"></div>
+            </div>
+            <div class="active-bg"></div>
+        </div>
+        <div class="label-text">PDFs redimensionables.</div>
+    </label>
+
+    <label class="label">
+        <div class="toggle">
+            <input id="qol-week-counter" class="toggle-state" type="checkbox" name="check" value="check" />
+            <div class="toggle-inner">
+                <div class="indicator"></div>
+            </div>
+            <div class="active-bg"></div>
+        </div>
+        <div class="label-text">Número de semana en calendario.</div>
+    </label>
+
+    <hr>
+
+    <div align="right">
+        <button id="tucursos-cc-r">
+            Eliminar datos.
+        </button>
+    </div>
+
 </body>
-<
+<script src = "../js/menu.js"></script>
+</html>

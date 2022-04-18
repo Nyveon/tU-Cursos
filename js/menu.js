@@ -1,62 +1,88 @@
+"use strict";
+
 /**
  * Updates a setting to a new value
+ * @param {String} key
+ * @param {*} value
  */
-function change_setting(key, value) {
-    chrome.storage.local.get("settings", function (data) {
-        const settings = data["settings"] ?? {};
-        settings[key] = value
-        chrome.storage.local.set({"settings": settings}, function () {
-            console.log("Setting updated.")
+function changeSetting(key, value) {
+    chrome.storage.local.get("settings").then(data => {
+        const settings = data.settings ?? {};
+        settings[key] = value;
+        chrome.storage.local.set({settings: settings}).then(() => {
+            console.log("Setting " + key + " updated to " + value);
         });
     });
 }
-
 
 /**
  * Creates a switch and sets its value to the current setting
+ * @param {Object} settings - The object containing the settings
+ * @param {String} key - The key of the setting
  */
-function initialize_switch(settings, key) {
+function initializeSwitch(settings, key) {
+    console.log(settings);
     const this_switch = document.getElementById(key);
     this_switch.checked = settings[key];
     this_switch.addEventListener('change', function() {
-        change_setting(key, this_switch.checked)
+        changeSetting(key, this_switch.checked);
     }, false);
 }
 
+/**
+ * Resets the local storage
+ * @param {HTMLElement} reset_data_button
+ */
+function initializeDataReset(reset_data_button) {
+    reset_data_button.addEventListener('click', function() {
+        console.log("Datos eliminados.");
+        chrome.storage.local.clear();
+    }, false);
+}
 
-document.addEventListener('DOMContentLoaded', function () {
+/**
+ * Calculates the storage in use and updates the UI
+ * @param {integer} bytes
+ * @param {HTMLElement} reset_data_button
+ */
+function insertStorageUsed(bytes, reset_data_button) {
+    const dataStored = document.createElement("span");
+    dataStored.textContent = (Math.round(100 * (bytes/1024)/1024)/100).toString() + "MB usados.";
+    dataStored.classList.add("right-align");
+    reset_data_button.parentElement.appendChild(document.createElement("br"));
+    reset_data_button.parentElement.appendChild(dataStored);
+}
 
-    var instance = M.Tabs.init(document.getElementById("tucursos-tabs"), {});
+/**
+ * Initializes the settings page
+ */
+function initializeMenu() {
+    chrome.storage.local.get("settings").then(data => {
+        const settings = data.settings ?? {};
 
-    chrome.storage.local.get("settings", function (data) {
-        const settings = data["settings"] ?? {};
+        // Course Counter (cc-)
+        initializeSwitch(settings, "cc-show-counter");
+        initializeSwitch(settings, "cc-save-participants");
+        //initializeSwitch(settings, "cc-show-saved-icon");
 
-        // Page 1 Switches
-        initialize_switch(settings, "cc-show-counter");
-        initialize_switch(settings, "cc-save-participants");
-        initialize_switch(settings, "cc-show-saved-icon");
+        // Element Hider (eh-)
+        initializeSwitch(settings, "eh-hide-piechart");
+        initializeSwitch(settings, "eh-shorten-message");
+        initializeSwitch(settings, "eh-hide-preview");
 
-        initialize_switch(settings, "eh-hide-piechart");
-        initialize_switch(settings, "eh-shorten-message");
-        initialize_switch(settings, "eh-hide-preview");
+        // Quality of life (qol-)
+        initializeSwitch(settings, "qol-grade-comments");
+        initializeSwitch(settings, "qol-element-resizer");
+        initializeSwitch(settings, "qol-week-counter");
 
-        initialize_switch(settings, "qol-grade-comments");
-        initialize_switch(settings, "qol-element-resizer");
-        initialize_switch(settings, "qol-week-counter");
-
-        const switchCCR = document.getElementById("tucursos-cc-r");
-        // Getting storage used and adding it above the delete data button
-        chrome.storage.local.getBytesInUse(null, function(data) {
-            const dataStored = document.createElement("span");
-            dataStored.textContent = (Math.round(100 * (data/1024)/1024)/100).toString() + "MB usados.";
-            dataStored.classList.add("right-align");
-            switchCCR.parentElement.appendChild(document.createElement("br"));
-            switchCCR.parentElement.appendChild(dataStored);
-        });
-
-        switchCCR.addEventListener('click', function() {
-            alert("data reset");
-            chrome.storage.local.clear();
-        }, false);
+        // Delete data button
+        const reset_data_button = document.getElementById("tucursos-cc-r");
+        chrome.storage.local.getBytesInUse(null)
+            .then(bytes => {insertStorageUsed(bytes, reset_data_button);})
+            .then({});
+        initializeDataReset(reset_data_button);
     });
-}, false)
+}
+
+// Initialize the menu upon loading
+document.addEventListener('DOMContentLoaded', initializeMenu);

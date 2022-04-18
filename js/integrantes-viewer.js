@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Runs at document-end
  */
@@ -11,19 +13,19 @@
  * The superscript number has a tooltip which shows the specific courses shared.
  */
 chrome.storage.local.get("settings", function (data) {
-    const settings = data["settings"] ?? {};
+    const settings = data.settings ?? {};
 
     // Break if currently not set to display this
     if (!settings["cc-show-counter"]) {
-        return
+        return;
     }
 
     chrome.storage.local.get("users", function (data) {
-        const users = data["users"] ?? {};
+        const users = data.users ?? {};
         const userLinks = document.querySelectorAll('a[href *= "usuario"]');
 
         for (const user of userLinks) {
-            const splitUser = user["href"].split("/");
+            const splitUser = user.href.split("/");
 
             if (splitUser.length === 6) {
                 const thisID = splitUser[4];
@@ -41,10 +43,10 @@ chrome.storage.local.get("settings", function (data) {
                             //https://www.u-cursos.cl/d/images/cargos/profesor_auxiliar.svg lower case
 
                             thisCourse.classList.add("tucompartido");
-                            thisCourse.href = value["URL"];
-                            thisCourse.textContent = value["code"] + "-" + value["section"] + " ";
-                            thisCourse.textContent += "(" + value["year"] + "-" + value["semester"] + ")";
-                            thisCourse.textContent += "  |  " + value["theirType"];
+                            thisCourse.href = value.URL;
+                            thisCourse.textContent = value.code + "-" + value.section + " ";
+                            thisCourse.textContent += "(" + value.year + "-" + value.semester + ")";
+                            thisCourse.textContent += "  |  " + value.theirType;
                             //listItem.appendChild(thisCourse);
                             tooltip.appendChild(thisCourse);
                         }

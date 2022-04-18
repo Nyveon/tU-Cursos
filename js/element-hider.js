@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * This script remove various elements from the page when the right page is matched.
  */
@@ -18,7 +20,7 @@ function hideElement(n, selector) {
 
 
 chrome.storage.local.get("settings", function (data) {
-	const settings = data["settings"] ?? {};
+	const settings = data.settings ?? {};
 
 	const ehHidePiechart = window.location.toString().match(".*:\\/\\/.*u-cursos.cl\\/.*\\/tareas_usuario\\/.*") && settings["eh-hide-piechart"];
 	const ehHidePiechartSelector = '.detalle';
