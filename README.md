@@ -1,5 +1,7 @@
-# tU-Cursos
+<img align="left" height=64 src="icon.png"/><h1>tU-Cursos</h1>
+
 Extension de Chromium y Firefox que agrega configuraciones de personalización y calidad de vida a U-Cursos. Desarrollado colaborativamente por [Eric K](https://github.com/Nyveon), [PuntitOWO](https://github.com/PuntitOwO), [sebcp](https://github.com/sebcp) y [vmkovacs](https://github.com/vmkovacs). También ver [tUcampus](https://github.com/Nyveon/tUcampus) para Ucampus.
+
 
 # Características:
 ## 🔢 Contador de cursos compartidos:
