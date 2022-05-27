@@ -57,6 +57,21 @@ En el menú de configuración de tU-Cursos, se puede deshabilitar cualquiera de 
 
 Hasta que esté estable el proyecto, no recomendamos instalarlo. De todas formas, instalarlo no es muy complicado si descargas. (Clonar el repositorio, y dependiendo del navegador cargarlo así como extensión, o comprimirlo como zip y cargarlo)
 
+- Chrome: 
+  1. Clonar el repositorio
+  2. Ir a chrome://extensions/
+  3. Habilitar "Developer Mode" arriba a la derecha
+  4. Poner "Load unpacked", seleccionando la carpeta de tU-Cursos.
+
+- Opera:
+  1. Clonar el repositorio
+  2. Ir a opera://extensions/
+  3. Poner "Load unpacked", seleccionando la carpeta de tU-Cursos.
+
+- Firefox:
+  1. Temporalmente, parece no estar funcionando. 
+
+
 # 🔮 Futuro y Contribución:
 
 El proyecto sigue en alfa, y aun no tiene un release oficial. Tenemos varias ideas que se pueden ver en [issues](https://github.com/Nyveon/tU-Cursos/issues). Te interesa agregarle algo? Tienes alguna idea? Se aceptan y aprecian colaboraciones, sugerencias, reportes de bugs y otros aportes!
