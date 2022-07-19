@@ -18,6 +18,7 @@ chrome.runtime.onInstalled.addListener(function() {
         "qol-grade-comments": true,         // Toggles grade comment editing opening in a new tab
         "qol-element-resizer": true,        // Toggles pdf elements being resizeable by dragging
         "qol-week-counter": true,           // Toggles week number visibility in schedule section
+        "qol-backlinks": true               // Toggles backlinks for posts
     };
 
     chrome.storage.local.set({"settings": settings}, function() {

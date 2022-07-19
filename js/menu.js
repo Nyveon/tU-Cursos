@@ -23,6 +23,7 @@ function changeSetting(key, value) {
 function initializeSwitch(settings, key) {
     console.log(settings);
     const this_switch = document.getElementById(key);
+    console.log(this_switch);
     this_switch.checked = settings[key];
     this_switch.addEventListener('change', function() {
         changeSetting(key, this_switch.checked);
@@ -74,6 +75,7 @@ function initializeMenu() {
         initializeSwitch(settings, "qol-grade-comments");
         initializeSwitch(settings, "qol-element-resizer");
         initializeSwitch(settings, "qol-week-counter");
+        initializeSwitch(settings, "qol-backlinks");
 
         // Delete data button
         const reset_data_button = document.getElementById("tucursos-cc-r");

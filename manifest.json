@@ -47,7 +47,8 @@
                 "*://www.u-cursos.cl/uchile/*/0/*/1/foro/"
             ],
             "js": [
-                "js/read-more.js"
+                "js/read-more.js",
+                "js/backlinks.js"
             ],
             "run_at": "document_end"
         },
@@ -81,6 +82,6 @@
     "icons": {
         "16": "icon16.png",
         "48": "icon48.png",
-       "128": "icon128.png" 
+       "128": "icon128.png"
     }
 }
