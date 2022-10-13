@@ -2,7 +2,8 @@
     "compilerOptions": {
         "target": "esNext",
         "watch": true,
-        "lib": ["dom", "es2017"]
+        "lib": ["dom", "es2017"],
+        "outDir": "dist",
     },
     "include": ["src/*"],
     "exclude": []

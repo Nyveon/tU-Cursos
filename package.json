@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Nyveon/tU-Cursos#readme",
   "devDependencies": {
+    "@types/chrome": "^0.0.197",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "eslint": "^8.25.0"
