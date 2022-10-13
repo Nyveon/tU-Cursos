@@ -1,0 +1,24 @@
+{
+  "name": "tu-cursos",
+  "version": "1.0.0",
+  "description": "Browser extension for U-Cursos",
+  "main": "/",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nyveon/tU-Cursos.git"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Nyveon/tU-Cursos/issues"
+  },
+  "homepage": "https://github.com/Nyveon/tU-Cursos#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "eslint": "^8.25.0"
+  }
+}
