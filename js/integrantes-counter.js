@@ -1,36 +1,36 @@
-"use strict";
+'use strict';
 
 /**
  * This script runs when the "integrantes" page is viewed.
  */
 
 const currentURL = window.location.toString();
-const splitURL = currentURL.split("/");
+const splitURL = currentURL.split('/');
 const thisCourse = splitURL[6];
 const thisSection = splitURL[7];
 const thisYear = splitURL[4];
 const thisSemester = splitURL[5];
-const thisURL = splitURL.slice(0, 8).join("/");
-const courseID = thisYear + "-" + thisSemester + "-" + thisCourse + "-" + thisSection;
-const myID = document.querySelector('a[href *= "usuario"]').href.split("/")[4];
+const thisURL = splitURL.slice(0, 8).join('/');
+const courseID = thisYear + '-' + thisSemester + '-' + thisCourse + '-' + thisSection;
+const myID = document.querySelector('a[href *= "usuario"]').href.split('/')[4];
 
-chrome.storage.local.get("settings", function (data) {
+chrome.storage.local.get('settings', function (data) {
     const settings = data.settings ?? {};
 
     // Break if currently not set to scrape this
-    if (!settings["cc-save-participants"]) {
+    if (!settings['cc-save-participants']) {
         return;
     }
 
-    chrome.storage.local.get("users", function (data) {
+    chrome.storage.local.get('users', function (data) {
         const users = data.users ?? {};
 
         // Go through the page, acquire users listed.
         const userLinks = document.querySelectorAll('a[href *= "usuario"]');
         const localUsers = {};
-        let myUser = settings["my-user"];
+        let myUser = settings['my-user'];
         for (const user of userLinks) {
-            const splitUser = user.href.split("/");
+            const splitUser = user.href.split('/');
 
             // All links where usuario is the before-last part of the URL.
             //todo: There is probably a better way to do this
@@ -38,19 +38,19 @@ chrome.storage.local.get("settings", function (data) {
                 const userID = splitUser[4];
                 const userType = user.parentElement.parentElement.querySelector('.cargo').title;
                 const userName = user.textContent;
-                localUsers[userID] = {"name": userName, "type": userType};
+                localUsers[userID] = {'name': userName, 'type': userType};
             }
 
             // Update my-user value if it has never been set before
             if (splitUser.length === 7 && myUser === -1) {
                 myUser = splitUser[4];
-                settings["my-user"] = myUser;
-                chrome.storage.local.set({"settings": settings});
+                settings['my-user'] = myUser;
+                chrome.storage.local.set({'settings': settings});
             }
         }
 
         // Get my user type for relationship type
-        const myType = localUsers[myID].type ?? "None";
+        const myType = localUsers[myID].type ?? 'None';
 
         /**
          * Add local user values to global user values
@@ -71,25 +71,25 @@ chrome.storage.local.get("settings", function (data) {
 
             users[key].name = value.name;
             users[key][courseID] = {
-                "code": thisCourse,
-                "URL": thisURL,
-                "section": thisSection,
-                "year": thisYear,
-                "semester": thisSemester,
-                "theirType": value.type,
-                "myType": myType
+                'code': thisCourse,
+                'URL': thisURL,
+                'section': thisSection,
+                'year': thisYear,
+                'semester': thisSemester,
+                'theirType': value.type,
+                'myType': myType
             };
         }
 
         // Save updated values to local storage
-        chrome.storage.local.set({"users": users}, function () {
+        chrome.storage.local.set({'users': users}, function () {
             console.log(users);
             //todo: log that this page was scraped
 
-            chrome.storage.local.get("scraped", function (data) {
+            chrome.storage.local.get('scraped', function (data) {
                 const scraped = data.scraped ?? {};
                 scraped[currentURL] = true;
-                chrome.storage.local.set({"scraped": scraped});
+                chrome.storage.local.set({'scraped': scraped});
                 console.log(scraped);
             });
         });

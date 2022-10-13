@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Function that returns an array of Dates representing each day of the week
@@ -112,11 +112,11 @@ function recessWeeksUntil(current, class_weeks) {
  * final value into the DOM
  */
 function addCounter(file) {
-    var schedule_date_dom = document.getElementById("body").getElementsByTagName("h1")[0];
+    var schedule_date_dom = document.getElementById('body').getElementsByTagName('h1')[0];
 
     // We use DD/MM/YYYY format
     // TODO: Handle english language case
-    var date_parts = schedule_date_dom.innerText.split(" ")[2].split("/");
+    var date_parts = schedule_date_dom.innerText.split(' ')[2].split('/');
 
     var current_date = new Date(date_parts[2], date_parts[1] - 1, date_parts[0]);
 
@@ -143,21 +143,21 @@ function addCounter(file) {
     var past_recess_weeks = recessWeeksUntil(current_date, filtered_dates);
     var is_class_week = isNormalWeek(current_date, filtered_dates);
 
-    var text = is_class_week? total_weeks - past_recess_weeks : "No hay clases";
+    var text = is_class_week? total_weeks - past_recess_weeks : 'No hay clases';
 
-    const add = " (" + text + ")";
+    const add = ' (' + text + ')';
 
     // We insert the number into the page
     schedule_date_dom.append(add);
 }
 
-chrome.storage.local.get("settings").then(data => {
+chrome.storage.local.get('settings').then(data => {
     const settings = data.settings ?? {};
 
-    if (!settings["qol-week-counter"]) {
+    if (!settings['qol-week-counter']) {
         return;
     }
 
-    var href = document.getElementsByClassName("file ical")[0].href;
+    var href = document.getElementsByClassName('file ical')[0].href;
     fetch(href).then(r => r.text()).then(d => addCounter(d));
 });

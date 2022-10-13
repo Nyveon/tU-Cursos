@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Updates a setting to a new value
@@ -6,11 +6,11 @@
  * @param {*} value
  */
 function changeSetting(key, value) {
-    chrome.storage.local.get("settings").then(data => {
+    chrome.storage.local.get('settings').then(data => {
         const settings = data.settings ?? {};
         settings[key] = value;
         chrome.storage.local.set({settings: settings}).then(() => {
-            console.log("Setting " + key + " updated to " + value);
+            console.log('Setting ' + key + ' updated to ' + value);
         });
     });
 }
@@ -35,7 +35,7 @@ function initializeSwitch(settings, key) {
  */
 function initializeDataReset(reset_data_button) {
     reset_data_button.addEventListener('click', function() {
-        console.log("Datos eliminados.");
+        console.log('Datos eliminados.');
         chrome.storage.local.clear();
     }, false);
 }
@@ -46,10 +46,10 @@ function initializeDataReset(reset_data_button) {
  * @param {HTMLElement} reset_data_button
  */
 function insertStorageUsed(bytes, reset_data_button) {
-    const dataStored = document.createElement("span");
-    dataStored.textContent = (Math.round(100 * (bytes/1024)/1024)/100).toString() + "MB usados.";
-    dataStored.classList.add("right-align");
-    reset_data_button.parentElement.appendChild(document.createElement("br"));
+    const dataStored = document.createElement('span');
+    dataStored.textContent = (Math.round(100 * (bytes/1024)/1024)/100).toString() + 'MB usados.';
+    dataStored.classList.add('right-align');
+    reset_data_button.parentElement.appendChild(document.createElement('br'));
     reset_data_button.parentElement.appendChild(dataStored);
 }
 
@@ -57,26 +57,26 @@ function insertStorageUsed(bytes, reset_data_button) {
  * Initializes the settings page
  */
 function initializeMenu() {
-    chrome.storage.local.get("settings").then(data => {
+    chrome.storage.local.get('settings').then(data => {
         const settings = data.settings ?? {};
 
         // Course Counter (cc-)
-        initializeSwitch(settings, "cc-show-counter");
-        initializeSwitch(settings, "cc-save-participants");
+        initializeSwitch(settings, 'cc-show-counter');
+        initializeSwitch(settings, 'cc-save-participants');
         //initializeSwitch(settings, "cc-show-saved-icon");
 
         // Element Hider (eh-)
-        initializeSwitch(settings, "eh-hide-piechart");
-        initializeSwitch(settings, "eh-shorten-message");
-        initializeSwitch(settings, "eh-hide-preview");
+        initializeSwitch(settings, 'eh-hide-piechart');
+        initializeSwitch(settings, 'eh-shorten-message');
+        initializeSwitch(settings, 'eh-hide-preview');
 
         // Quality of life (qol-)
-        initializeSwitch(settings, "qol-grade-comments");
-        initializeSwitch(settings, "qol-element-resizer");
-        initializeSwitch(settings, "qol-week-counter");
+        initializeSwitch(settings, 'qol-grade-comments');
+        initializeSwitch(settings, 'qol-element-resizer');
+        initializeSwitch(settings, 'qol-week-counter');
 
         // Delete data button
-        const reset_data_button = document.getElementById("tucursos-cc-r");
+        const reset_data_button = document.getElementById('tucursos-cc-r');
         chrome.storage.local.getBytesInUse(null)
             .then(bytes => {insertStorageUsed(bytes, reset_data_button);})
             .then({});

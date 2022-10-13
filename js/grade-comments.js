@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /*
 * Query all a hrefs that belong to students grades and then add
@@ -7,10 +7,10 @@
 */
 
 
-chrome.storage.local.get("settings", function (data) {
+chrome.storage.local.get('settings', function (data) {
     const settings = data.settings ?? {};
 
-    if (!settings["qol-grade-comments"]) {
+    if (!settings['qol-grade-comments']) {
         return;
     }
 
@@ -18,7 +18,7 @@ chrome.storage.local.get("settings", function (data) {
 
     for (let i = 0; i < elem.length; i++){
         var link = elem[i].attributes[0].nodeValue;
-        elem[i].setAttribute("target", "popup");
-        elem[i].setAttribute("onclick", "window.open('" + link + "','popup','width=600,height=600'); return false;");
+        elem[i].setAttribute('target', 'popup');
+        elem[i].setAttribute('onclick', 'window.open(\'' + link + '\',\'popup\',\'width=600,height=600\'); return false;');
     }
 });

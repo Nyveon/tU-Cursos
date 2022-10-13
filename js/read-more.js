@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const paragraph_limit = 5;
 const text = document.getElementsByClassName('texto');
@@ -7,7 +7,7 @@ const text = document.getElementsByClassName('texto');
 * Function that counts the ammount of paragraphs in a HTML element
 */
 function countLines(elem) {
-    var paragraphs = elem.innerHTML.split("<br>").filter(String);
+    var paragraphs = elem.innerHTML.split('<br>').filter(String);
     var len = paragraphs.length;
     if (len === 0) {
         return 1;
@@ -16,10 +16,10 @@ function countLines(elem) {
     }
 }
 
-chrome.storage.local.get("settings", function (data) {
+chrome.storage.local.get('settings', function (data) {
     const settings = data.settings ?? {};
 
-    if (!settings["eh-shorten-message"]) {
+    if (!settings['eh-shorten-message']) {
         return;
     }
 
@@ -35,13 +35,13 @@ chrome.storage.local.get("settings", function (data) {
         text[i].removeChild(options); // Removed
         const text_length = countLines(text[i]);
         if (text_length > paragraph_limit) {
-            const paragraphs = text[i].innerHTML.split("<br>");
+            const paragraphs = text[i].innerHTML.split('<br>');
             let short_text = paragraphs[0];
             for (let j = 1; j <= paragraph_limit; j++) {
-                if (paragraphs[j] === "") {
-                    short_text = short_text + "<br>";
+                if (paragraphs[j] === '') {
+                    short_text = short_text + '<br>';
                 } else {
-                    short_text = short_text + "<br>" + paragraphs[j];
+                    short_text = short_text + '<br>' + paragraphs[j];
                 }
             }
             const long_text = text[i].innerHTML;
@@ -61,7 +61,7 @@ chrome.storage.local.get("settings", function (data) {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].addEventListener('click', function () {
             // If text is shown less, then show complete
-            if (this.getAttribute('data-more') === "0") {
+            if (this.getAttribute('data-more') === '0') {
                 this.setAttribute('data-more', 1);
                 this.style.display = 'block';
                 this.innerHTML = 'Leer menos';
@@ -70,7 +70,7 @@ chrome.storage.local.get("settings", function (data) {
                 this.previousElementSibling.previousElementSibling.style.display = 'inline';
             }
             // If text is shown complete, then show less
-            else if (this.getAttribute('data-more') === "1") {
+            else if (this.getAttribute('data-more') === '1') {
                 this.setAttribute('data-more', 0);
                 this.style.display = 'inline';
                 this.innerHTML = 'Leer más';
