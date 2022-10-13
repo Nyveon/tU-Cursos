@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "esNext",
+        "watch": true,
+        "lib": ["dom", "es2017"]
+    },
+    "include": ["src/*"],
+    "exclude": []
+}
